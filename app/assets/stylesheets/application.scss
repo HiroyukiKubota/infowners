@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ 
+
+
+@import "bootstrap";
+@import "honoka";
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 100;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Yu Gothic";
+}
+
+.for_bottomline{
+  border-bottom: solid 2px #dcdcdc;
+  width: 35vw;
+  display: flex;
+  							justify-content: center;
+ 								align-items: center;
+}
+
+// header
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10000;
+  background-color: white;
+  box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.1);
+}
+
+#logo{
+   height: 7vh;
+}
+
+nav{
+    height: 4vh;
+}
+
+
+// top
+
+#top_button_to_about{
+    	display: inline-block;
+    	position: relative;
+  padding: 0.75em 3em;
+  text-decoration: none;
+  border-radius: 3px;
+  color: #ffffff;
+background: #9CECFB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #9CECFB, #65C7F7, #0052D4);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #9CECFB, #65C7F7, #0052D4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  position: absolute;
+  bottom: 60px;
+font-size: 160%;
+}
+
+// about
+// .page_title{
+//   font-size: 220%;
+//   margin: 175px 0 auto ;
+// }
+
+#content_about > img { 
+  width: 100%; 
+}
+
+#about1{
+  margin-top: 80px;
+}

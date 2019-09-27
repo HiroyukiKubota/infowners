@@ -4,12 +4,47 @@
     <title>Infowners</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag('favicon.ico') %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-light bg-white mt-3 mb-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/"><%= image_tag'logo.png', id: 'logo'%></a>
+        <div class="collapse navbar-collapse justify-content-start">
+            <ul class="navbar-nav">
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/about">Infownersとは？</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">安心に取引できる仕組み</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">よくある質問</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">お部屋情報を販売する</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">お部屋情報を探す</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ログイン</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
