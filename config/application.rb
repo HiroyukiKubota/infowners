@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module Infowners
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+
     config.load_defaults 6.0
 
     config.hosts << "2ee2047955cc4ab6b3a3c56af878543b.vfs.cloud9.us-east-1.amazonaws.com"

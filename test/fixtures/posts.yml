@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  city: MyString
+  suburb: MyString
+  roomtype: MyString
+  rent: 1
+  gender: MyString
+  okimiyage: MyString
+  minimum_stay: MyString
+  move_in_date: 2019-09-28
+  sharemate_male: 1
+  sharemate_female: 1
+  smoking: MyString
+  couple: MyString
+  description: MyText
+  price: 1
+
+two:
+  title: MyString
+  city: MyString
+  suburb: MyString
+  roomtype: MyString
+  rent: 1
+  gender: MyString
+  okimiyage: MyString
+  minimum_stay: MyString
+  move_in_date: 2019-09-28
+  sharemate_male: 1
+  sharemate_female: 1
+  smoking: MyString
+  couple: MyString
+  description: MyText
+  price: 1

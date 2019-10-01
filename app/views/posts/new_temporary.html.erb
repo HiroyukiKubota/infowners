@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <title>サイトタイトル</title>
+ <meta name="description" content="サイトキャプションを入力">
+ <meta name="keywords" content="サイトキーワードを,で区切って入力">
+ <!--[if lt IE 9]>
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+ <![endif]-->
+ <script src="sample.js"></script>
+ </head>
+ 
+ <body>
+ <!----- メインコンテンツ ----->
+ <article>
+ <h1>出品ページの作成</h1>
+ <%= form_for(@post, url: {controller: "posts_controller", action: "create" }) do |f| %>
+ <h5>タイトル</h5>
+ <%= f.text_field :title %>
+ <h5>画像のアップロード（最高10枚）</h5>
+ 
+<!-- 追加箇所 開始 -->
+    <% if @post.image? %>
+        <%= image_tag @post.image.url %>
+    <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @post.persisted? && @post.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
+  <!-- 追加箇所 終了 -->
+  
+ <h5>都市選択</h5>
+ <p>表示のない都市は今後追加予定のため少々お待ちください。</p>
+ <label><%= f.radio_button :city, "Gold Coast" %>Gold Coast</label>
+ <label><%= f.radio_button :city, "Brisbane" %>Brisbane</label>
+ <label><%= f.radio_button :city, "Cains" %>Cains</label>
+ <label><%= f.radio_button :city, "Sydney" %>Sydney</label>
+ <label><%= f.radio_button :city, "SMelbourne" %>Melbourne</label>
+ <h5>サバーブ選択</h5>
+ <%= f.text_field :suburb %>
+  <h5>お部屋タイプ選択</h5>
+ <label><%= f.radio_button :roomtype, "オウン" %>オウン</label>
+ <label><%= f.radio_button :roomtype, "シェア" %>シェア</label>
+ <h5>レント</h5>
+ <label><%= f.number_field :rent %>ドル/週</label>
+ <%= f.check_box 'utility',checked_value = "別途（詳細は説明欄参照）",unchecked_value = "レントに含む" %>水道電気代別
+  <%= f.check_box 'wifi',checked_value = "別途（詳細は説明欄参照）",unchecked_value = "レントに含む" %>Wi-Fi代別
+ <h5>ボンド</h5>
+ <label><%= f.number_field :bond %>ドル</label>
+ <h5>募集性別</h5>
+ <label><%= f.radio_button :gender, "男性のみ" %>男性のみ</label>
+ <label><%= f.radio_button :gender, "女性のみ" %>女性のみ</label>
+ <label><%= f.radio_button :gender, "男女問わず" %>男女問わず</label>
+ <h5>オキミヤゲ</h5>
+ <label><%= f.radio_button :okimiyage, "有（詳細は説明欄参照）" %>有</label>
+ <label><%= f.radio_button :okimiyage, "無" %>無</label>
+ <h5>最低入居期間</h5>
+  <%= f.text_field :minimum_stay, value:"例）１ヶ月"%>
+ <h5>入居可能日</h5>
+ <%= f.date_select :move_in_date %>
+ <h5>同居人構成</h5>
+ <label>男性<%= f.select :sharemate_male, ["０人", "1人", "２人", "３人以上"], :prompt => “選択してください” %></label>
+ <label>女性<%= f.select :sharemate_female, ["０人", "1人", "２人", "３人以上"], :prompt => “選択してください” %></label>
+ <h5>喫煙</h5>
+ <label><%= f.radio_button :smoking, "不可" %>不可</label>
+ <label><%= f.radio_button :smoking, "可" %>可</label>
+ <label><%= f.radio_button :smoking, "一部可" %>一部可</label>
+ <h5>カップル</h5>
+ <label><%= f.radio_button :couple, "不可" %>不可</label>
+ <label><%= f.radio_button :couple, "可" %>可</label>
+ <h5>説明</h5>
+ <%= f.text_area :description %>
+ <h5>販売価格</h5>
+ <label><%= f.number_field :price %>ドル</label>
+ <%= f.submit '出品する'%>
+ <% end %>
+ </article>
+ <!----- メインコンテンツ END ----->
+ 
+ <!----- フッター ----->
+ <footer>フッター</footer>
+ <!----- フッター END ----->
+ </body>
+</html>

@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'bootstrap-honoka-rails' , '~> 4.3.1'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Use Active Storage variant

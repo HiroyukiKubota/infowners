@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <title>サイトタイトル</title>
+ <meta name="description" content="サイトキャプションを入力">
+ <meta name="keywords" content="サイトキーワードを,で区切って入力">
+ <!--[if lt IE 9]>
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+ <![endif]-->
+ <script src="sample.js"></script>
+ </head>
+ 
+ <body>
+ <!----- メインコンテンツ ----->
+ <article>
+ <h1>出品ページの作成</h1>
+ <%= form_tag("/posts/create") do %>
+ <h5>タイトル</h5>
+ <input type="text" name="title" >
+ <h5>画像のアップロード（最高10枚）</h5>
+  <input type="file" name="image">
+ <h5>都市選択</h5>
+ <p>表示のない都市は今後追加予定のため少々お待ちください。</p>
+ <input type="radio" name="city" value="Gold Coast">Gold Coast
+ <input type="radio" name="city" value="Brisbane">Brisbane
+ <input type="radio" name="city" value="Cains">Cains
+ <input type="radio" name="city" value="Sydney">Sydney
+ <input type="radio" name="city" value="Melbourne">Melbourne
+ <h5>サバーブ選択</h5>
+ <input type="text" name="suburb" >
+  <h5>お部屋タイプ選択</h5>
+ <input type="radio" name="roomtype" value="オウン">オウン
+ <input type="radio" name="roomtype" value="シェア">シェア
+ <h5>レント</h5>
+ <input type="number" name="rent" >ドル/週
+ <input type="hidden" name="utility" value="レントに含む">
+ <input type="checkbox" name="utility" value="別途（詳細は説明欄参照）" >水道電気代別
+ <input type="hidden" name="wifi" value="レントに含む">
+ <input type="checkbox" name="wifi" value="別途（詳細は説明欄参照）"> Wi-Fi代別
+ <h5>ボンド</h5>
+ <input type="number" name="bond" >ドル
+ <h5>募集性別</h5>
+ <input type="radio" name="gender" value="男性のみ">男性のみ
+ <input type="radio" name="gender" value="女性のみ">女性のみ
+ <input type="radio" name="gender" value="男女問わず">男女問わず
+ <h5>オキミヤゲ</h5>
+ <input type="radio" name="okimiyage" value="有（詳細は説明欄参照）">有
+ <input type="radio" name="okimiyage" value="無">無
+ <h5>最低入居期間</h5>
+ <input type="text" name="minimum_stay" value="例）１ヶ月" >
+ <h5>入居可能日</h5>
+ <input type="date" name="move_in_date"  >
+ <h5>同居人構成</h5>
+男性<select name="sharemate_male">
+ <option value="0人">0人</option>
+  <option value="1人">1人</option>
+  <option value="2人">2人</option>
+  <option value="3人以上">3人以上</option>
+</select>
+<p>女性<select name="sharemate_female">
+ <option value="0人">0人</option>
+  <option value="1人">1人</option>
+  <option value="2人">2人</option>
+  <option value="3人以上">3人以上</option>
+</select></p>
+<h5>喫煙</h5>
+ <input type="radio" name="smoking" value="不可">不可
+ <input type="radio" name="smoking" value="可">可
+ <input type="radio" name="smoking" value="一部可">一部可
+ <h5>説明</h5>
+ <textarea name="description"></textarea>
+ <h5>販売価格</h5>
+ <input type="number" name="price" >ドル
+ <p><input type="submit" value="投稿を確定"></p>
+ <% end %>
+ </article>
+ <!----- メインコンテンツ END ----->
+ 
+ <!----- フッター ----->
+ <footer>フッター</footer>
+ <!----- フッター END ----->
+ </body>
+</html>

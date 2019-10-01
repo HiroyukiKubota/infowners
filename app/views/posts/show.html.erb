@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <title>サイトタイトル</title>
+ <meta name="description" content="サイトキャプションを入力">
+ <meta name="keywords" content="サイトキーワードを,で区切って入力">
+ <!--[if lt IE 9]>
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+ <![endif]-->
+ <script src="sample.js"></script>
+ </head>
+ 
+ <body>
+ <!----- メインコンテンツ ----->
+ <article>
+ <h1><%= @post.title %></h1>
+ <section>
+ <p><img src="<%= @post.image %>"></p>
+ <p><%= @post.description %></p>
+ <p><%= @post.city %></p>
+ <p><%= @post.roomtype %></p>
+ <p><%= @post.utility %></p>
+ <p><%= @post.wifi %></p>
+ <p><%= @post.okimiyage %></p>
+ <p><%= @post.minimum_stay %></p>
+ <p><%= @post.move_in_date %></p>
+ <p><%= @post.sharemate_male %></p>
+ <p><%= @post.sharemate_female %></p>
+ <p><%= @post.gender %></p>
+ <p><%= @post.smoking %></p>
+ <p><%= @post.couple %></p>
+ 
+  <p><%= @post.price %></p>
+
+<%= link_to('一覧ページへ戻る', '/posts/index')%>
+ </section>
+ </article>
+ <!----- メインコンテンツ END ----->
+ 
+ <!----- フッター ----->
+ <footer>フッター</footer>
+ <!----- フッター END ----->
+ </body>
+</html>
