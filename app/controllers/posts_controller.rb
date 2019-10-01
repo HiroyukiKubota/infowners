@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
     @post =Post.new(
       title: params[:title],
       city: params[:city],
@@ -41,13 +40,6 @@ class PostsController < ApplicationController
   def post_done
   end
   
-  private
-     
-    def post_params
-      params.require(:post).permit(:title, :city, :suburb, :roomtype, :rent, :utility, :wifi, 
-      :bond, :gender, :okimiyage, :minimum_stay, :move_in_date, :sharemate_male, :sharemate_female,
-      :smoking, :couple, :description, :price, :image, :remove_image)
-    end
 end
   
 

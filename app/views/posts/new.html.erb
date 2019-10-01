@@ -16,7 +16,7 @@
  <!----- メインコンテンツ ----->
  <article>
  <h1>出品ページの作成</h1>
- <%= form_tag("/posts/create") do %>
+ <%= form_tag("/posts/create", {multipart: true}) do %>
  <h5>タイトル</h5>
  <input type="text" name="title" >
  <h5>画像のアップロード（最高10枚）</h5>
