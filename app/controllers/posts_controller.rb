@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       couple: params[:couple],
       description: params[:description],
       price: params[:price],
-      image: params[:image]
+      image: "#{post.id}.jpg"
       )
       @post.save
     redirect_to("/posts/post_done")
