@@ -5,6 +5,66 @@
  <title>サイトタイトル</title>
  <meta name="description" content="サイトキャプションを入力">
  <meta name="keywords" content="サイトキーワードを,で区切って入力">
+ 
+ <style type="text/css">
+body{
+ margin-top: 20vh;
+} 
+ 
+ 
+ #index_title_box{
+  text-align: center;
+ }
+ 
+    .index_box { 
+                border: 1px solid #c0c0c0;
+                margin: 5vh auto 0;
+                display: flex;
+                width: 70vw;
+                padding: 4vh 0 4vh 4vh;
+                
+    }
+    
+    .box_left{
+     width: 45%;
+    }
+    
+    .box_center{
+     width: 37%;
+     margin-top: 2vh;
+    }
+    
+    .box_right{
+     width: 18%;
+     text-align: center;
+    }
+    
+    .okimiyage_images{
+     width:8vw;
+     height: auto;
+     position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%); /* Safari用 */
+  transform: translateY(-50%);
+    }
+    
+    .button_to_show{
+     display: inline-block;
+  padding: 0.73em 7.7em;
+  text-decoration: none;
+  border-radius: 3px;
+  color: #ffffff;
+background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+font-size: 110%;
+margin-top: 20px;
+text-align: center;
+    }
+    
+    
+    </style>
  <!--[if lt IE 9]>
  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -13,24 +73,53 @@
  </head>
  
  <body>
+  <div id="index_title_box">
+ <h1>掲載中のお部屋</h1>
+ </div>
+  <% @posts.each do |post| %>
+  <div class="index_box">
+   
+   <div class="box_left">
+     <%= image_tag("#{post.image}") %>
+   </div>
+   
+  <div class="box_center">
+    <%= post.city %>
+    <h4><%= post.title %></h4>
+     <table>
+       <tbody>
+           <tr>
+               <th>Rent</th>
+               <td class="txt"><%= post.rent %>ドル/週</td>
+           </tr>
+           <tr>
+               <th>Type</th>
+               <td class="txt"><%= post.roomtype %></td>
+           </tr>
+           <tr>
+               <th>Gender</th>
+               <td class="txt"><%= post.gender %></td>
+           </tr>
+       </tbody>
+     </table> 
+   <%= link_to('詳しく見る', "/posts/#{post.id}", class: 'button_to_show')%>
+   </div>
+   
+   <div class="box_right">
+ <% if post.okimiyage=="無" %>
+ <%= image_tag 'off_okimiyage.png', class: 'okimiyage_images' %>
+ <% else %>
+  <%= image_tag 'on_okimiyage.png', class: 'okimiyage_images'%>
+ <% end %>
+ </div>
+ </div>
+ <% end %>
  
- <!--メインコンテンツ-->
  
  
- <h1>シドニー</h1>
-<% @posts.each do |post| %>
-<%= post.suburb %>
-<%= post.title %>
-<%= post.rent%>
-<%= post.roomtype%>
-<%= post.gender%>
-<%= link_to('詳細ページへ', "/posts/#{post.id}")%>
-<% end %>
 
- <!----- メインコンテンツ END ----->
- 
- <!----- フッター ----->
- <footer>フッター</footer>
- <!----- フッター END ----->
+
+
+
  </body>
 </html>
