@@ -5,6 +5,54 @@
  <title>サイトタイトル</title>
  <meta name="description" content="サイトキャプションを入力">
  <meta name="keywords" content="サイトキーワードを,で区切って入力">
+ <style type="text/css">
+ 
+body{
+ margin-top: 20vh;
+}
+
+#title_box{
+text-align: center;
+}
+
+.content_box { 
+                border: 1px solid #c0c0c0;
+                margin: 5vh auto 0;
+                width: 70vw;
+                padding: 4vh 0 4vh 4vh;
+                text-align: center;
+    }
+    
+.button_to_index{
+ display: inline-block;
+  padding: 0.73em 7.7em;
+  text-decoration: none;
+  border-radius: 3px;
+  color: #ffffff;
+background: #f85032;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #e73827, #f85032);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #e73827, #f85032); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+font-size: 110%;
+margin-top: 20px;
+text-align: center;
+}
+
+.button_to_mypage{
+ display: inline-block;
+  padding: 0.73em 7.7em;
+  text-decoration: none;
+  border-radius: 3px;
+  color: white; 
+background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+font-size: 110%;
+text-align: center;
+}
+    
+    </style>
  <link rel="stylesheet" href="sample.css">
  <!--[if lt IE 9]>
  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,15 +64,18 @@
  <body>
  <!----- メインコンテンツ ----->
  <article>
- <h1>お部屋情報の出品が完了しました！入力お疲れ様でした！</h1>
- <%= link_to('一覧ページへ', '/posts/index')%>
- <%= link_to('マイページへ', '#')%>
-
+ <div id="title_box">
+ <h1>出品完了！</h1>
+ </div>
+  <div class="content_box">
+ <p>入力お疲れ様でした。入居希望者が現れるまで少々お待ちください。</p>
+ <p><%= link_to('一覧ページへ', '/posts/index', class: 'button_to_index')%></p>
+ </br>
+ <p><%= link_to('マイページへ', '#', class: 'button_to_mypage')%></p>
+ </div>
  </article>
  <!----- メインコンテンツ END ----->
  
- <!----- フッター ----->
- <footer>フッター</footer>
- <!----- フッター END ----->
+  
  </body>
 </html>

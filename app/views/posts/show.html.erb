@@ -5,6 +5,81 @@
  <title>サイトタイトル</title>
  <meta name="description" content="サイトキャプションを入力">
  <meta name="keywords" content="サイトキーワードを,で区切って入力">
+ <style type="text/css">
+ body{
+ margin-top: 20vh;
+} 
+ 
+ .title_and_description{
+  text-align: center;
+ }
+ 
+ .image{
+ width: 60vw;
+ height: auto;
+ }
+ 
+ .description{
+  margin-top: 10vh;
+ }
+ 
+ .my-parts {
+  border-collapse: collapse;
+  border: 1px solid rgba(0,0,0,.1);
+  table-layout: fixed;
+  width: 80vw;
+    color: white;
+    margin:10vh auto 0;
+
+}
+.my-parts th, .my-parts td {
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 1.5vw;
+  text-align: center;
+  background: #333333;
+}
+.my-parts th {
+  background: #333333;
+  color: white;
+  font-weight: bold;
+}
+.my-parts tr > td:nth-child(odd) {
+  background: #333333;
+}
+.my-parts tr > td:nth-child(even) {
+  background: #333333;
+}
+
+h3{
+ display: inline;
+ margin-right: 5vh;
+}
+ 
+h2{
+ margin: 10vh 0;
+ display: inline;
+}
+
+.price{
+ text-align: center;
+ margin-top: 10vh;
+}
+ 
+ #button_buy{
+  display: inline-block;
+  padding: 0.75em 3em;
+  text-decoration: none;
+  border-radius: 3px;
+  color: #ffffff;
+background: #F00000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+font-size: 160%;
+margin:10vh;
+ }
+ 
+ </style>
  <!--[if lt IE 9]>
  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -14,25 +89,30 @@
  <body>
  <!----- メインコンテンツ ----->
  <article>
+  <div class="title_and_description">
  <h1><%= @post.title %></h1>
+ <%= image_tag("#{@post.image}", class:'image') %>
  <section>
-<p><%= @post.description %></p>
- <p><%= @post.city %></p>
- <p><%= @post.roomtype %></p>
- <p><%= @post.utility %></p>
- <p><%= @post.wifi %></p>
- <p><%= @post.okimiyage %></p>
- <p><%= @post.minimum_stay %></p>
- <p><%= @post.move_in_date %></p>
- <p><%= @post.sharemate_male %></p>
- <p><%= @post.sharemate_female %></p>
- <p><%= @post.gender %></p>
- <p><%= @post.smoking %></p>
- <p><%= @post.couple %></p>
- 
-  <p><%= @post.price %></p>
+  <div class="description">
+<h5><%= @post.description %></h5>
 
-<%= link_to('一覧ページへ戻る', '/posts/index')%>
+</div>
+
+<table class="my-parts">
+  <tr><td>サバーブ：<%= @post.suburb %></td><td>最低入居期間：<%= @post.minimum_stay %></td></tr>
+  <tr><td>お部屋タイプ：<%= @post.roomtype %></td><td>入居可能日：<%= @post.move_in_date %></td></tr>
+  <tr><td>レント（ボンド）：<%= @post.rent %>ドル/週（<%= @post.bond %>ドル）</td><td>同居人構成：男性<%= @post.sharemate_male %>人 + 女性<%= @post.sharemate_female %>人</td></tr>
+  <tr><td>水道光熱費：<%= @post.utility %></td><td>募集性別 ：<%= @post.gender %></td></tr>
+  <tr><td>Wi-Fi代：<%= @post.wifi %></td><td>喫煙：<%= @post.smoking %></td></tr>
+  <tr><td>オキミヤゲ：<%= @post.okimiyage %></td><td>カップル入居：<%= @post.couple %></td></tr>
+</table>
+ <div class="price">
+  <h3>販売価格</h3><h2><%= @post.price %>ドル</h2>
+  </div>
+<a href="" id="button_buy">購入する</a>
+<p><%= link_to('一覧ページへ戻る', '/posts/index')%></p>
+
+</div>
  </section>
  </article>
  <!----- メインコンテンツ END ----->
